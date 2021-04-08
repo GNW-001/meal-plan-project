@@ -5,16 +5,18 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 import os
-from app import app
+from app import app, db
 from flask import render_template, request, redirect, url_for, flash, session, abort, send_from_directory
 from werkzeug.utils import secure_filename
+from werkzeug.security import check_password_hash
 
+from app.models import User, Recipe
+from app.forms import ProfileForm, RecipeForm, LoginForm
+from app.models import User, Recipe
 
 ###
 # Routing for your application.
 ###
-from app.forms import ProfileForm
-from app.recipeForms import RecipeForm
 
 
 @app.route('/')
@@ -34,7 +36,8 @@ def about():
 def recipe():
     if not session.get('logged_in'):
         return redirect(url_for('welcome'))
-    return render_template('recipe.html')
+    reciList = Recipe.query.all()
+    return render_template('recipe.html', recipes=reciList)
 
 
 @app.route('/addRecipe', methods=['POST', 'GET'])
@@ -45,6 +48,17 @@ def addRecipe():
     if request.method == 'POST':
         # Get file data and save to your uploads folder
         if form.validate_on_submit():
+            name = form.name.data;
+            instruction = form.instruction.data
+            numInstruction = form.numInstruction.data
+            ingredients = form.ingredients.data
+            measurement = form.measurement.data
+
+            recipe = Recipe(name, instruction, ingredients)
+
+            db.session.add(recipe)
+            db.session.commit()
+
             flash('File Saved', 'success')
         return redirect(url_for('home'))
     return render_template('addRecipe.html', form=form)
@@ -128,16 +142,21 @@ def files():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     error = None
-    form = ProfileForm()
-    if request.method == 'POST':
-        if request.form['email'] != app.config['ADMIN_EMAIL'] or request.form['password'] != app.config['ADMIN_PASSWORD']:
-            error = 'Invalid username or password'
-        else:
+    form = LoginForm()
+    if request.method == 'POST' and form.validate_on_submit:
+        email = form.email.data
+        password = form.password.data
+        user = User.query.filter_by(email=email).first()
+        if user is not None and check_password_hash(user.password, password):
+            print("yes")
             session['logged_in'] = True
-            
+            error = 'Invalid username or password'
             flash('You were logged in', 'success')
             return redirect(url_for('home'))
-    return render_template('login.html', error=error,form=form)
+        else:
+            error = 'Invalid username or password'
+
+    return render_template('login.html', error=error, form=form)
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -148,10 +167,24 @@ def register():
     form = ProfileForm()
     # Validate file upload on submit
     if request.method == 'POST':
-        # Get file data and save to your uploads folder
+        print("commit")
         if form.validate_on_submit():
-            flash('File Saved', 'success')
-        return redirect(url_for('home'))
+            fname = form.fname.data
+            lname = form.lname.data
+            email = form.email.data
+            password = form.password.data
+            weight = form.weight.data
+            height = form.height.data
+            user = User(fname, lname, email, password, weight, height)
+            print(user)
+
+            db.session.add(user)
+            db.session.commit()
+            print("commit")
+            return redirect(url_for('login'))
+        else:
+            print(form.errors)
+
     return render_template('register.html', form=form)
 
 

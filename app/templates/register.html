@@ -2,14 +2,14 @@
 
 {% block main %}
 <div class="loginP">
-    <form action="{{ url_for('login') }}" method="post" enctype="multipart/form-data">
-      {{ form.csrf_token }}
-
-      <div>
+    <div>
         <img src="../static/images/icons/people_64px_big.png" class="imageTop"/>
       </div>
 
         <h2>Sign Up</h2>
+    <form action="{{ url_for('register') }}" method="post" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
       {% if error %}
         <div class="alert alert-danger">
           <strong>Error:</strong> {{ error }}

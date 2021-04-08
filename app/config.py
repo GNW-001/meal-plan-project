@@ -5,10 +5,15 @@ class Config(object):
     """Base Config Object"""
     DEBUG = False
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'Som3$ec5etK*y'
+    """the format is postgresql://user:password@localhost/databasename """
+    SQLALCHEMY_DATABASE_URI = 'postgresql://comp3161:123temp@localhost/comp3161project'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
     ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL') or 'admin@gmail.com'
     ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or 'Password123'
     UPLOAD_FOLDER = './uploads'
     UPLOAD_PROFILE = './uploads/profilePic'
+
 
     app = Flask(__name__)
 

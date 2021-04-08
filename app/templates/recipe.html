@@ -7,7 +7,11 @@
     </div>
     <div class="recipe">
         <h3 class="recipe-header">Results:</h3>
-        <p></p>
+        {% for recipe in recipes %}
+            <h4>{{ recipe.name }}</h4>
+            <p>{{ recipe.instruction }}</p>
+            <p>{{ recipe.ingredients }}</p>
+        {% endfor %}
     </div>
     <a class="nav-link" href="{{ url_for('addRecipe') }}"><button class="standard-button">Add a recipe</button></a>
 

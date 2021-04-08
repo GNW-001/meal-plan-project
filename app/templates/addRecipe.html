@@ -2,14 +2,14 @@
 
 {% block main %}
 <div class="loginP">
-    <form action="{{ url_for('login') }}" method="post" enctype="multipart/form-data">
-      {{ form.csrf_token }}
-
-      <div>
+    <div>
         <img src="../static/images/icons/cookingbook_64px_big.png" class="imageTop"/>
       </div>
 
         <h2>Add your recipe</h2>
+    <form action="{{ url_for('addRecipe') }}" method="post" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
       {% if error %}
         <div class="alert alert-danger">
           <strong>Error:</strong> {{ error }}
