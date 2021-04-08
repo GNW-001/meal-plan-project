@@ -1,0 +1,33 @@
+  
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="openMenu">&#9776; Open</span>
+<div id="theSideNav" class="sideNav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <img src="../static/images/icons/meal_64px.png" class="logo"/>
+    <ul class="navbar-nav mr-auto">
+        {% if session.logged_in %}
+          <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('home') }}"><img src="../static/images/icons/home_64px.png" class="navIcon" />Home</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('mealplan') }}"><img src="../static/images/icons/calendar_64px.png" class="navIcon" /> Meal Plan</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('recipe') }}"><img src="../static/images/icons/book_64px.png" class="navIcon" /> Recipe</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('grocery') }}"><img src="../static/images/icons/shopping_cart_64px.png" class="navIcon" />Grocery</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('profile') }}"><img src="../static/images/icons/person_64px.png" class="navIcon" />Profile</a>
+          </li>
+        {% endif %}
+      </ul>
+
+      <ul class="navbar-nav">
+          {% if session.logged_in %}
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}"><p class="logout">Logout</p></a>
+          </li>
+          {% endif %}
+      </ul>
+  </div>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<form class="loginP" method="post">
+  <div>
+    <img src="../static/images/icons/login_64px_big.png" class="imageTop"/>
+  </div>
+  <h2>Please log in</h2>
+  {% if error %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong> {{ error }}
+    </div>
+  {% endif %}
+  <div class="form-group">
+    <label for="email" class="sr-only">Email</label>
+    <input type="text" id="email" name="email" class="form-control" placeholder="Your email" required >
+  </div>
+  <div class="form-group">
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+  </div>
+  <button class="standard-button" type="submit">Log in</button>
+</form>
+{% endblock %}
+

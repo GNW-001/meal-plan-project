@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <img src="{{url_for('get_profile_image', filename=filename)}}" class="homePic"/>
+    <div class="intake">
+        <h2 class="profile-header">Calorie Intake</h2>
+        <p>1610 Calories</p>
+    </div>
+    <div class="currentMeal">
+        <h3 class="page-header">Current Meal</h3>
+        <p></p>
+    </div>
+
+{% include 'flash_messages.html' %}
+
+<p class="lead">This Flask app demonstrates basic file uploads and basic authentication.</p>
+{% endblock %}

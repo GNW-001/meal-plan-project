@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="page-header">Images</h1>
+
+{% include 'flash_messages.html' %}
+<ul class="grid-container">
+    {% for filename in lisst %}
+        <li class="grid-item"><img src= "{{url_for('get_image', filename=filename)}}" /></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="grocery">
+        <div class="inventory">
+            <h3 class="inventory-header">Results:</h3>
+            <p></p>
+        </div>
+        <div class="shopping-list">
+            <h3 class="shopping-header">Shopping List:</h3>
+            <p></p>
+        </div>
+    </div>
+
+{% include 'flash_messages.html' %}
+
+{% endblock %}

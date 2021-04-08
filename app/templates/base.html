@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Database UI</title>
+
+    <!-- Bootstrap -->
+    <link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
+    <link href="{{ url_for('static', filename="css/style.css") }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/app.css") }}">
+    {% block css %} {% endblock%}
+    <script src="{{ url_for('static', filename="js/dynamic.js") }}"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static', filename="js/bootstrap.min.js") }}"></script>
+    {% block js %} {% endblock%}
+</head>
+  <body>
+      <main>
+          <div class="container">
+               {% if session.logged_in %}
+                {% include "header.html" %}
+               {% endif %}
+              {% block main %}{% endblock %}
+          </div>
+      </main>
+      <footer>
+          <div class="container">
+              {% include "footer.html" %}
+          </div>
+      </footer>
+  </body>
+</html>

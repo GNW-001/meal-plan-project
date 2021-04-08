@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="loginP">
+    <form action="{{ url_for('login') }}" method="post" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+
+      <div>
+        <img src="../static/images/icons/cookingbook_64px_big.png" class="imageTop"/>
+      </div>
+
+        <h2>Add your recipe</h2>
+      {% if error %}
+        <div class="alert alert-danger">
+          <strong>Error:</strong> {{ error }}
+        </div>
+      {% endif %}
+
+      <div class="pForm">
+          {{ form.csrf_token }}
+          {{ form.hidden_tag() }}
+
+          {{ form.name.label }}
+          {{ form.name }}
+          <br>
+          {{ form.instruction.label }}
+          {{ form.instruction }}
+          <br>
+          {{ form.numInstruction.label }}
+          {{ form.numInstruction }}
+          <br>
+          {{ form.ingredients.label }}
+          {{ form.ingredients }}
+          <br>
+          {{ form.measurement.label }}
+          {{ form.measurement }}
+          <br>
+          {{ form.numMeasurement.label }}
+          {{ form.numMeasurement }}
+      </div>
+      <button type="submit" name="submit" class="standard-button">Add Recipe</button>
+    </form>
+</div>
+{% endblock %}

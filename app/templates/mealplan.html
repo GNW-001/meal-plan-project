@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="table">
+        <table class = "days">
+          <tr>
+            <td class = "blank"></td>
+            <th scope = "col"> Monday </th>
+            <th scope = "col"> Tuesday </th>
+            <th scope = "col"> Wednesday </th>
+            <th scope = "col"> Thursday </th>
+            <th scope = "col"> Friday </th>
+            <th scope = "col"> Sataurday </th>
+            <th scope = "col"> Sunday </th>
+          </tr>
+          <tr>
+            <th scope="row">Breakfast</th>
+            <td class = "odd"></td>
+            <td></td>
+            <td class = "odd"></td>
+            <td></td>
+            <td class = "odd"></td>
+            <td></td>
+            <td class = "odd"></td>
+          </tr>
+          <tr>
+            <th scope="row">Lunch</th>
+            <td class = "odd lunch"></td>
+            <td class = "lunch"></td>
+            <td class = "odd lunch"></td>
+            <td class = "lunch"></td>
+            <td class = "odd lunch "></td>
+            <td class = lunch></td>
+            <td class = "odd lunch"></td>
+          </tr>
+          <tr>
+            <th scope="row">Dinner</th>
+            <td class = "odd"></td>
+            <td></td>
+            <td class = "odd"></td>
+            <td></td>
+            <td class = "odd"></td>
+            <td></td>
+            <td class = "odd"></td>
+          </tr>
+        </table>
+    </div>
+
+{% include 'flash_messages.html' %}
+
+<p class="lead">This Flask app demonstrates basic file uploads and basic authentication.</p>
+{% endblock %}

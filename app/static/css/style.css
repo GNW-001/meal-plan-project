@@ -1,0 +1,286 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 50px 50px;
+}
+
+img {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+ul {
+    list-style: none;
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #233b66;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sideNav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sideNav a:hover {
+            color: #a6aab2;
+        }
+
+    .sideNav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sideNav {
+        padding-top: 15px;
+    }
+
+        .sideNav a {
+            font-size: 18px;
+        }
+}
+
+.navIcon {
+    max-width: 38px;
+    max-height: 38px;
+    margin-right: 10px;
+}
+
+.nav-link {
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.homePic {
+    max-width: 175px;
+    max-height: 175px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.standard-button {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    min-width: 100px;
+    min-height: 50px;
+    margin-top: 20px;
+    cursor:pointer;
+    font-size: 20px;
+}
+.standard-button:hover {
+    background-color: #333333;
+}
+
+.imageTop {
+    width: 150px;
+    height: 150px;
+}
+
+input {
+    margin-top: 50px;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.loginP {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+footer {
+    max-height: 100px;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.openMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.welcomebg {
+    background-image: url("../images/food-background2.jpg");
+    background-position: left top;
+    background-size: 550px 400px;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    position: relative;
+    opacity: 0.4;
+ }
+
+ .welcome {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 900px;
+ }
+
+ .welcome button {
+    margin-right: 70px;
+ }
+
+ .welcome-message {
+    position: relative;
+    bottom: 250px;
+    left: 300px;
+    font-size: 60px;
+ }
+
+ .intake {
+    position: relative;
+    bottom: 150px;
+    left: 300px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+.searchButton {
+    width: 50px;
+    height: 50px;
+}
+
+
+* {
+margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    font-family: 'Alegreya Sans SC';
+}
+
+#recipe-search {
+    min-width: 400px;
+    margin-left: 0px;
+}
+
+.recipe {
+    margin-top: 50px;
+    min-height: 400px;
+}
+
+.searchImg {
+    max-height: 35px;
+    max:width: 35px;
+}
+
+.searchButton {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+td{
+	height: 100px;
+	width: 50px;
+}
+
+table{
+	margin-top: 50px;
+	width : 100%;
+	float: "right";
+}
+
+.odd{
+	background: #b3cfdd;
+}
+
+.days{
+	border-collapse: collapse;
+}
+
+.blank{
+	background: white;
+}
+
+.lunch{
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+}
+
+.currentMeal {
+    min-height: 300px;
+}
+
+.grocery div{
+    display: inline-block;
+    max-width: 45%;
+    min-width: 35%;
+    min-height: 400px;
+}
+
+.health div{
+    display: inline-block;
+    max-width: 30%;
+    min-width: 20%;
+    min-height: 200px;
+}
+
+.age {
+    min-height: 200px;
+    padding-top: 50px;
+}
+
+.activity-level {
+    min-height: 200px;
+}
+
+.profilePic {
+    max-width: 175px;
+    max-height: 175px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.logout {
+    position: absolute;
+    bottom: 70px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+textarea {
+    margin-top: 50px;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+}

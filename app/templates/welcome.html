@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="welcome">
+        <div class="welcomebg"></div>
+        <h1 class="welcome-message">WELCOME</h1>
+        <div class="welcome-buttons">
+            <a class="nav-link" href="{{ url_for('login') }}"><button class="standard-button">Sign In</button></a>
+            <a class="nav-link" href="{{ url_for('register') }}"><button class="standard-button">Sign Up</button></a>
+        </div>
+    </div>
+
+{% include 'flash_messages.html' %}
+
+{% endblock %}

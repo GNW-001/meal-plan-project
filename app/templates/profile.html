@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <img src="{{url_for('get_profile_image', filename=filename)}}" class="profilePic"/>
+    <div class="age">
+        <h3 class="profile-header">Age</h3>
+        <p></p>
+    </div>
+    <div class="activity-level">
+        <h3 class="profile-header">Activity Level</h3>
+        <p></p>
+    </div>
+    <div class="health">
+        <div><h3 class="profile-header">Disease:</h3></div>
+        <div><h3 class="profile-header">Deficiencies:</h3></div>
+        <div><h3 class="profile-header">Allergies:</h3></div>
+        <p></p>
+    </div>
+
+{% include 'flash_messages.html' %}
+
+{% endblock %}

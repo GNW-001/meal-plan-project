@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="search">
+        <input type="search" id="recipe-search" name="recipeSearch" aria-label="Search">
+        <button type="submit" name="submit" class="searchButton"><img src="../static/images/icons/search_64px_big.png" class="searchImg"/></button>
+    </div>
+    <div class="recipe">
+        <h3 class="recipe-header">Results:</h3>
+        <p></p>
+    </div>
+    <a class="nav-link" href="{{ url_for('addRecipe') }}"><button class="standard-button">Add a recipe</button></a>
+
+{% include 'flash_messages.html' %}
+
+{% endblock %}
